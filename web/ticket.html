@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TICKET | XYZUA</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./home.css">
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="topbar" :style="statusColor">{{status}}</div>
+  
+    <h1 class="title">TICKET</h1>
+    <div class="row">
+      <!-- info -->
+      <input v-for="(val, key, index) in info" class="label" :value="key + ': ' + val" readonly="readonly" />
+    </div>
+    <hr />
+    <h1 class="title">Marks</h1>
+    <div class="row">
+      <!-- marks -->
+      <input v-for="m in marks" class="label" :value="m.Type" readonly="readonly" />
+    </div>
+    <div class="bottom">
+      <div class="bottombar">
+        &nbsp;
+      </div> 
+      <div :class="['button', marked ? 'green' : 'yellow']" @click="mark">
+        <i style="font-size: 35px;" class="material-icons">{{marked ? 'done' : 'crop_square'}}</i>
+      </div> 
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="./common.js"></script>
+<script type="text/javascript" src="./ticket.js"></script>
+
+</html>

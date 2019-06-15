@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>LOGIN | XYZUA</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./index.css">
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+  <script src="https://cdn.bootcss.com/jshashes/1.0.7/hashes.min.js"></script>
+</head>
+
+<body bgcolor="#324c77">
+  <div class="bar">XYZUA</div>
+  <div id="app" @click="login">
+    <div class="input">
+      <h1 class="title">Login</h1>
+      <input placeholder="Username" @click.stop="" v-model="username" class="inputForm" clearable />
+      <input placeholder="Password" @keyup.enter="login" @click.stop="" v-model="password" class="inputForm" type="password" clearable />
+      <input class="label" :style="styleColor" v-model="tip" readonly="readonly" />
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="./common.js"></script>
+<script type="text/javascript" src="./index.js"></script>
+
+</html>
