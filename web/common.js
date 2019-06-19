@@ -47,3 +47,8 @@ function CheckDifficulty(val) {
   if (/\W/.test(val)) diff++; // special character
   return diff;
 }
+
+function GetDateString() {
+  let date = new Date();
+  return date.toLocaleDateString()
+}

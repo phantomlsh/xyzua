@@ -18,16 +18,23 @@ import (
 )
 
 func checkAdmin(ctx *context.Context) bool {
-	var input map[string]interface{}
-	if err := json.Unmarshal(ctx.Input.RequestBody, &input); err == nil {
-		if input["admintoken"] == nil {
-			return false
-		}
-		admintoken := input["admintoken"].(string)
-		u := services.QueryIdentity(admintoken, false)
-		if u != nil && u.Role == "ADMIN" {
-			return true
-		}
+	var admintoken string
+	admintoken = ctx.Input.Query("admintoken")
+	if admintoken == "" {
+		var input map[string]interface{}
+		if err := json.Unmarshal(ctx.Input.RequestBody, &input); err == nil {
+			if input["admintoken"] == nil {
+				return false
+			}
+			admintoken = input["admintoken"].(string)
+		}	
+	}
+	if admintoken == "" {
+		return false
+	}
+	u := services.QueryIdentity(admintoken, false)
+	if u != nil && u.Role == "ADMIN" {
+		return true
 	}
 	return false
 }
