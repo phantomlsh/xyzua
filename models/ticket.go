@@ -12,6 +12,7 @@ import (
 type Ticket struct {
 	Id     int    `orm:"column(id);auto" description:"id of ticket"`
 	Ticket string `orm:"column(ticket);size(64);null" description:"ticket"`
+	Tag    string `orm:"column(tag);size(20);null" description:"tag of ticket"`
 	Info   string `orm:"column(info);null" description:"information of ticket"`
 	Expire uint   `orm:"column(expire);null" description:"expire time of ticket"`
 }
