@@ -49,7 +49,7 @@ func (c *UtilController) Post() {
 			}
 			admintoken := input["admintoken"].(string)
 			admin := services.QueryIdentity(admintoken, false)
-			if admin.Role != "ADMIN" {
+			if admin.Role != "ADMIN" && admin.Role != "TICKETADMIN" {
 				resp.Success = false
 				resp.Message = utils.Msg.Forbidden
 				c.ServeJSON()

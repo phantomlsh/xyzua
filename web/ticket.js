@@ -9,18 +9,18 @@ var app = new Vue({
     status: "Loading ...",
     marked: false,
     info: {},
-    tag: "test",
+    tag: "Loading ...",
     marks:[],
     ticket: "",
     isChecked: false,
     isToday: false,
   },
-  // created: function() {
-  //   this.ticket = GetQueryVariable("t");
-  //   if (!this.ticket) window.location.href = "./index.html";
-  //   this.getInfo();
-  //   this.getMarks();
-  // },
+  created: function() {
+    this.ticket = GetQueryVariable("t");
+    if (!this.ticket) window.location.href = "./index.html";
+    this.getInfo();
+    this.getMarks();
+  },
   methods: {
     mark: function(type) {
       // check all kinds of conditions
@@ -55,6 +55,7 @@ var app = new Vue({
             this.tag = this.identity.Raw.Tag;
           } else {
             this.errorFunc(resp.data.Message);
+            this.tag = "Ticket Error";
           }
         })
         .catch(this.errorFunc);
