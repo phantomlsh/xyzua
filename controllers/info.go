@@ -104,7 +104,7 @@ func (c *InfoController) Put() {
 			return
 		}
 		challengeInfo := c.GetSession("challenge").(utils.ChallengeInfo)
-		if challengeInfo.TimeStamp + 2 > utils.TimeStamp(0) { // time is too close
+		if challengeInfo.TimeStamp+2 > utils.TimeStamp(0) { // time is too close
 			resp.Success = false
 			resp.Message = utils.Msg.ContextErr
 			c.Data["json"] = resp

@@ -60,6 +60,7 @@ func (c *UserController) GetOne() {
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
+		v.Password = "*****HASH*****"
 		c.Data["json"] = v
 	}
 	c.ServeJSON()

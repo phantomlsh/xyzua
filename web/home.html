@@ -25,6 +25,7 @@
     <h1 class="title">Links</h1>
     <div class="row">
       <!-- links -->
+      <input v-if="identity.Role == 'ADMIN'" class="label" value="ADMIN" @click="jumpApp('ADMIN')" readonly="readonly" />
       <input v-for="link in links" class="label" :value="link.Appname" @click="jumpApp(link.Appname)" readonly="readonly" />
     </div>
     <div class="bottom">

@@ -88,6 +88,11 @@ var app = new Vue({
         .catch(this.errorFunc);
     },
     jumpApp: function(appname, callback) {
+      if (appname == 'ADMIN') {
+        this.message("Jumping to " + appname + " ...", "");
+        JumpLater("./admin/", 1000);
+        return ;
+      }
       axios // get callback
         .post("./v1/info", {
           token: storage["XYZUA_Token"],
