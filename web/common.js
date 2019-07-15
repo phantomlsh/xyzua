@@ -50,5 +50,8 @@ function CheckDifficulty(val) {
 
 function GetDateString() {
   let date = new Date();
-  return date.toLocaleDateString()
+  let dateString = date.getFullYear() 
+    + "/" + (date.getMonth() + 1) 
+    + "/" + date.getDate();
+  return dateString;
 }
