@@ -3,6 +3,10 @@ body {
   margin: 0;
 }
 
+input {
+  outline: none;
+}
+
 .bar {
   position: absolute;
   width: calc(100% - 32px);

@@ -10,6 +10,7 @@ import (
 
 func main() {
 	orm.RegisterDataBase("default", "mysql", beego.AppConfig.String("sqlconn"))
-	beego.BConfig.WebConfig.StaticDir["/"] = "web"
+  orm.RunSyncdb("default", false, false) // automatically create table
+  beego.BConfig.WebConfig.StaticDir["/"] = "web"
 	beego.Run()
 }

@@ -4,6 +4,10 @@ body {
   background-color: #324c77;
 }
 
+input {
+  outline: none;
+}
+
 .topbar {
   position: fixed;
   top: 0;
