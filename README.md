@@ -63,3 +63,22 @@ change ```/web/index.html <head>``` :
 
 > change ```/web/changepassword.html <head>``` as ```index.html``` except the ```<title>```
 > change ```/web/ticket.html <head>``` as ```home.html``` except the ```<title>```
+
+
+## App Interface
+
+1. Register: In the ```model``` of **XYZUA**, ADD an app with ```appname``` , ```secret``` and a ```callback```
+
+> ```callback``` is a url in which ```#code#``` will be replaced with user's one-time code.
+> 
+> E.x. https://www.baidu.com/?code=#code#
+
+2. When calling Login, jump to ```domain/index.html?App=appname```, with your registed ```appname```
+
+3. After the user login to **XYZUA**, it will automatically jump to the ```callback``` with the user's code.
+
+4. Your App can send a http **DELETE** request (with params of ```appname```, ```appsecret``` and ```code```) to the **Back-End** to get the particular user's information.
+
+## Back-End Structure
+
+![](https://b2.bmp.ovh/imgs/2019/07/61ce11e102684bdd.jpg)
