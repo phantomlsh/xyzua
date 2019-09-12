@@ -45,10 +45,11 @@ func (c *InfoController) Post() {
 			callback := services.QueryCode(identity.Id, appname)
 			if callback == nil {
 				resp.Success = false
+				callback = &services.Callback{Token: resp.Message.(string)}
 			} else {
 				resp.Success = true
+				callback.Token = resp.Message.(string)
 			}
-			callback.Token = resp.Message.(string)
 			resp.Message = callback
 		}
 		c.Data["json"] = resp
